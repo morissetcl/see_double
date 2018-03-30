@@ -66,7 +66,8 @@ class CheckDuplication
       global_array = arr_trie.flatten.flatten
       global_hash =  global_array.inject(Hash.new(0)) { |total, e| total[e] += 1 ;total}
       global_hash.delete_if { |k, v| v <= 1 }
-      global_array_trie = global_hash.sort_by(&:first).reverse
+
+      global_array_trie = global_hash.sort_by(&:last).reverse
       global_array_trie.map do |expect_name,count|
         puts "You use #{count.to_s.light_red} times the #{expect_name.light_red} as #{arg}"
       end

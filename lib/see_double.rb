@@ -1,5 +1,5 @@
-require 'check_duplication'
-require 'check_expect'
+require_relative 'check_duplication'
+require_relative 'check_expect'
 
 module SeeDouble
   def check_duplication_spec spec
