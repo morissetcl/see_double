@@ -11,8 +11,12 @@ RSpec.describe 'Admin - Artwork - Index', :feature do
   end
 
   it "display the list of artworks" do
-    create :artwork, name: "L'origine du monde"
+    3.times do |n|
+      create :artwork, name: "L'origine du monde #{n}"
+    end
     visit admin_artworks_path
-    expect(page).to have_content "L'origine du monde"
+    expect(page).to have_content "L'origine du monde 1"
+    expect(page).to have_content "L'origine du monde 2"
+    expect(page).to have_content "L'origine du monde 3"
   end
 end

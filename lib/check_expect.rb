@@ -38,7 +38,7 @@ class GetDataFromSpec
     end
 
     def renvoie_le_bon_chemin
-      Dir.exist?("./rails_app/dummy") ? "./rails_app/dummy/spec/*.rb" : "./spec/features/**/*.rb"
+      Dir.exist?("./rails_app/dummy") ? "./rails_app/dummy/spec/**/*.rb" : "./spec/features/**/*.rb"
     end
 
     def parcours_recupere_data(specs_content, mot_cle, data_currated )
@@ -61,7 +61,6 @@ class GetDataFromSpec
         return unless mot_cle.include?(a)
         array.push(line)
       end
-      p array
     end
 
     def itere_sur_chaque_ligne_des_expects(array_initial, array_resultat, mot_cle)
