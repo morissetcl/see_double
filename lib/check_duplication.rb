@@ -30,6 +30,7 @@ class CheckDuplication
 
     def formate_les_resultats_par_fichier(duplication_final, arg)
       array_reconstitue = @array_filename.zip(duplication_final)
+      return if arg.nil?
       affiche_les_resultats_par_fichier(array_reconstitue, arg)
       affiche_les_resultats_pour_ensemble_des_specs(array_reconstitue, arg)
     end
@@ -37,7 +38,7 @@ class CheckDuplication
     private
 
     def affiche_les_resultats_par_fichier(arr_trie, arg)
-      puts ' ----- Analyze of your expects by files -----'
+      puts " ----- Analyze of your #{arg} by files -----"
       display_result = []
       arr_trie.each do |a|
         hash_count = a.last.inject(Hash.new(0)) {|h,i| h[i] += 1; h }
@@ -61,7 +62,7 @@ class CheckDuplication
 
     def affiche_les_resultats_pour_ensemble_des_specs(arr_trie, arg)
       puts "\n\n"
-      puts '----- Analyze of your expects from all yours specs -----'
+      puts "----- Analyze of your #{arg} from all yours specs -----"
       puts "\n"
       global_array = arr_trie.flatten.flatten
       global_hash =  global_array.inject(Hash.new(0)) { |total, e| total[e] += 1 ;total}
@@ -77,5 +78,3 @@ class CheckDuplication
 end
 
 COLORS = [:light_black, :red, :light_red, :green, :light_green, :yellow, :light_yellow, :blue, :light_blue, :magenta, :light_magenta, :cyan, :light_cyan]
-
-CheckDuplication.recupere_data_from_spec(ARGV[0])
