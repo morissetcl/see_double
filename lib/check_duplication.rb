@@ -38,7 +38,7 @@ class CheckDuplication
     private
 
     def affiche_les_resultats_par_fichier(arr_trie, arg)
-      puts ' ----- Analyze of your expects by files -----'
+      puts " ----- Analyze of your #{arg} by files -----"
       display_result = []
       arr_trie.each do |a|
         hash_count = a.last.inject(Hash.new(0)) {|h,i| h[i] += 1; h }
@@ -62,7 +62,7 @@ class CheckDuplication
 
     def affiche_les_resultats_pour_ensemble_des_specs(arr_trie, arg)
       puts "\n\n"
-      puts '----- Analyze of your expects from all yours specs -----'
+      puts "----- Analyze of your #{arg} from all yours specs -----"
       puts "\n"
       global_array = arr_trie.flatten.flatten
       global_hash =  global_array.inject(Hash.new(0)) { |total, e| total[e] += 1 ;total}
