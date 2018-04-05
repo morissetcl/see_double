@@ -78,5 +78,3 @@ class CheckDuplication
 end
 
 COLORS = [:light_black, :red, :light_red, :green, :light_green, :yellow, :light_yellow, :blue, :light_blue, :magenta, :light_magenta, :cyan, :light_cyan]
-
-CheckDuplication.recupere_data_from_spec(ARGV[0])
