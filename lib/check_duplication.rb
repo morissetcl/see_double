@@ -30,6 +30,7 @@ class CheckDuplication
 
     def formate_les_resultats_par_fichier(duplication_final, arg)
       array_reconstitue = @array_filename.zip(duplication_final)
+      return if arg.nil?
       affiche_les_resultats_par_fichier(array_reconstitue, arg)
       affiche_les_resultats_pour_ensemble_des_specs(array_reconstitue, arg)
     end
