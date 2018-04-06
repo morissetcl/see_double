@@ -38,7 +38,6 @@ class CheckDuplication
     private
 
     def affiche_les_resultats_par_fichier(arr_trie, arg)
-      puts " ----- Analyze of your #{arg} by files -----"
       display_result = []
       arr_trie.each do |a|
         hash_count = a.last.inject(Hash.new(0)) {|h,i| h[i] += 1; h }
@@ -47,6 +46,7 @@ class CheckDuplication
         sleep(0.2)
       end
       puts "\n\n"
+      puts " ----- Analyze of your #{arg} by files -----"
       result_triee_par_file = display_result.sort_by(&:last).reverse
       result_triee_par_occurence = result_triee_par_file.sort_by(&:first)
       path = []
