@@ -39,6 +39,11 @@ class CheckDuplication
 
     def affiche_les_resultats_par_fichier(arr_trie, arg)
       display_result = []
+      formate_le_nbre_d_occurence(display_result,arr_trie)
+      affiche_les_resultats_dans_le_teminal(display_result, arg)
+    end
+
+    def formate_le_nbre_d_occurence(display_result,arr_trie)
       arr_trie.each do |a|
         hash_count = a.last.inject(Hash.new(0)) {|h,i| h[i] += 1; h }
         hash_count.to_a.map { |expect_name,count| display_result <<  [a.first, expect_name, count] }
@@ -46,7 +51,9 @@ class CheckDuplication
         sleep(0.2)
       end
       puts "\n\n"
-      puts " ----- Analyze of your #{arg} by files -----"
+    end
+
+    def affiche_les_resultats_dans_le_teminal(display_result, arg)
       result_triee_par_file = display_result.sort_by(&:last).reverse
       result_triee_par_occurence = result_triee_par_file.sort_by(&:first)
       path = []
@@ -60,16 +67,19 @@ class CheckDuplication
       end
     end
 
-    def affiche_les_resultats_pour_ensemble_des_specs(arr_trie, arg)
-      puts "\n\n"
-      puts "----- Analyze of your #{arg} from all yours specs -----"
-      puts "\n"
+    def trie_les_resultats_pour_ensemble_des_specs(arr_trie)
       global_array = arr_trie.flatten.flatten
       global_hash =  global_array.inject(Hash.new(0)) { |total, e| total[e] += 1 ;total}
       global_hash.delete_if { |k, v| v <= 1 }
+      @global_array_trie = global_hash.sort_by(&:last).reverse
+    end
 
-      global_array_trie = global_hash.sort_by(&:last).reverse
-      global_array_trie.map do |expect_name,count|
+    def affiche_les_resultats_pour_ensemble_des_specs(arr_trie, arg)
+      puts "\n\n"
+      puts '----- Analyze of your expects from all yours specs -----'
+      puts "\n"
+      trie_les_resultats_pour_ensemble_des_specs(arr_trie)
+      @global_array_trie.map do |expect_name,count|
         puts "You use #{count.to_s.light_red} times the #{expect_name.light_red} as #{arg}"
       end
       puts "\n"
