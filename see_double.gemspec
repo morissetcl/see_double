@@ -1,7 +1,6 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'version'
 # Maintain your gem's version:
 require "see_double/version"
 
@@ -14,6 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "ok: Summary of SeeDouble."
   s.description = "ok: Description of SeeDouble."
   s.license     = "MIT"
+  s.executables   = ["see_double"]
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
