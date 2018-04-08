@@ -70,7 +70,6 @@ class GetDataFromSpec
         if mot_cle == 'result'
           recupere_le_contenu_du_resultat_attendu(line, contenu)
         else
-
           recupere_contenu_entre_parenthese(line, contenu)
         end
         array_resultat << contenu
@@ -94,7 +93,9 @@ class GetDataFromSpec
 
     def clean_result(array)
       resultat_trie = array.map { |a| a.flatten }
-      resultat_trie.delete_if { |a| a.include?("page")}
+      resultat_trie.each do |a|
+        a.delete_if { |i| i == 'page'}
+      end
       resultat_trie.delete_if { |a| a.length == 1 }
     end
   end

@@ -55,10 +55,9 @@ class CheckDuplication
 
     def affiche_les_resultats_dans_le_teminal(display_result, arg)
       result_triee_par_file = display_result.sort_by(&:last).reverse
-      result_triee_par_occurence = result_triee_par_file.sort_by(&:first)
       path = []
       puts "----- Analyze of your #{arg} from each features specs -----"
-      result_triee_par_occurence.each do |a|
+      result_triee_par_file.each do |a|
         if !path.include?(a.first)
           path.push(a.first)
           puts "\n"
