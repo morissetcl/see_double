@@ -46,7 +46,7 @@ class CheckDuplication
     def formate_le_nbre_d_occurence(display_result,arr_trie)
       arr_trie.each do |a|
         hash_count = a.last.inject(Hash.new(0)) {|h,i| h[i] += 1; h }
-        hash_count.to_a.map { |expect_name,count| display_result <<  [a.first, expect_name, count] }
+        hash_count.to_a.map { |expect_name,count| display_result <<  [a.first, expect_name.delete('()'), count] }
         print ".".colorize(color: COLORS.sample)
         sleep(0.2)
       end
@@ -57,13 +57,15 @@ class CheckDuplication
       result_triee_par_file = display_result.sort_by(&:last).reverse
       result_triee_par_occurence = result_triee_par_file.sort_by(&:first)
       path = []
+      puts "----- Analyze of your #{arg} from each features specs -----"
       result_triee_par_occurence.each do |a|
         if !path.include?(a.first)
           path.push(a.first)
           puts "\n"
           puts "#{a.first.green}:"
         end
-        puts "you use #{a[2].to_s.light_red} times #{a[1].light_red} as #{arg}"
+        output = "you use #{a[2].to_s.light_red} times #{a[1].light_red} as #{arg}"
+        puts output unless a[1].blank?
       end
     end
 
@@ -76,7 +78,7 @@ class CheckDuplication
 
     def affiche_les_resultats_pour_ensemble_des_specs(arr_trie, arg)
       puts "\n\n"
-      puts '----- Analyze of your expects from all yours specs -----'
+      puts "----- Analyze of your #{arg} from all yours specs -----"
       puts "\n"
       trie_les_resultats_pour_ensemble_des_specs(arr_trie)
       @global_array_trie.map do |expect_name,count|
