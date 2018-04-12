@@ -78,7 +78,9 @@ class GetDataFromSpec
 
     def recupere_contenu_entre_parenthese(line, array_initial)
       line.each do |a|
-        array_initial << a.scan(/\((.*)\)/)
+        recupere_contenu = []
+        recupere_contenu << a.scan(/\((.*?)\)/)
+        array_initial << recupere_contenu.first
         array_initial.delete_if { |s| s.empty? }
       end
     end
