@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "ok: Summary of SeeDouble."
   s.description = "ok: Description of SeeDouble."
   s.license     = "MIT"
-  s.executables   = ["see_double"]
+  s.executables << "see_double"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
