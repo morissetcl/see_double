@@ -8,6 +8,7 @@ require "see_double/version"
 Gem::Specification.new do |s|
   s.name        = "see_double"
   s.version     = SeeDouble::VERSION
+  s.platform    = Gem::Platform::RUBY
   s.authors     = ["Clement Morisset"]
   s.email       = ["morissetcl87@gmail.com"]
   s.summary     = "ok: Summary of SeeDouble."
@@ -16,8 +17,7 @@ Gem::Specification.new do |s|
   s.executables << "see_double"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
-
-  s.add_dependency "rails", ">= 5.1.5"
+  s.add_dependency "rails", ">= 5.1.4"
   s.add_development_dependency "rspec", "~> 3.2"
   s.add_dependency 'colorize', '~> 0.8.1'
   s.add_development_dependency "sqlite3"
