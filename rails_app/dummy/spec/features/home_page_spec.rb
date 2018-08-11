@@ -4,8 +4,8 @@ feature "Home page" do
 
   scenario "visit" do
     visit "/"
-    expect(page).to have_title "Welcome to RSpec Rails Examples"
-    expect(page).to have_css "h1", text: "Welcome"
+    expect(page).to have_title "Best test ever"
+    expect(page).to have_css ".welcome"
   end
 
 end

@@ -5,14 +5,14 @@ describe SeeDouble do
 
   context 'with key word expect' do
 
-    datas = [["./rails_app/dummy/spec/features/artworks/show_spec.rb", "artwork", "artwork", "artwork", "user", "user"], ["./rails_app/dummy/spec/home_spec.rb", "doudou", "doudou"]]
+    datas = [["./rails_app/dummy/spec/features/share_page_spec.rb", "\"Script served by Clément Rollon\""], ["./rails_app/dummy/spec/features/user_login_and_logout_spec.rb", "current_path", "new_user_session_path"], ["./rails_app/dummy/spec/home_spec.rb", "doudou", "doudou"]]
 
     it 'return an array of path and its expects' do
       expect(GetDataFromSpec.resultat_trie 'expect'). to eq datas
     end
 
     it 'return an array just with expects' do
-      expect(CheckDuplication.trie_les_expects_et_les_noms_de_fichiers datas). to eq [["artwork", "artwork", "artwork", "user", "user"], ["doudou", "doudou"]]
+      expect(CheckDuplication.trie_les_expects_et_les_noms_de_fichiers datas). to eq  [["\"Script served by Clément Rollon\""], ["current_path", "new_user_session_path"], ["doudou", "doudou"]]
     end
 
     it "should print the right informations on terminal" do
@@ -25,14 +25,10 @@ describe SeeDouble do
 
   context 'with key word result' do
 
-    datas = [["./rails_app/dummy/spec/admin_spec.rb", " \"L'origine du monde 1\"", " \"L'origine du monde 2\"", " \"L'origine du monde 3\""], ["./rails_app/dummy/spec/features/artworks/new_spec.rb", " artwork_path Artwork.last", " user.name"], ["./rails_app/dummy/spec/features/artworks/show_spec.rb", " artwork.name", " artwork.price", " artwork.owner", " 'Popi'", " '22'"], ["./rails_app/dummy/spec/features/users/show_spec.rb", " user.name", " user.first_name", " artwork.name", " artwork.price", " artwork.size"], ["./rails_app/dummy/spec/home_spec.rb", " artwork.name", " artwork.price"]]
+    datas = [["./rails_app/dummy/spec/admin_spec.rb", " \"L'origine du monde 1\"", " \"L'origine du monde 2\"", " \"L'origine du monde 3\""], ["./rails_app/dummy/spec/features/share_page_spec.rb", "(\"Script served by Clément Rollon\")"], ["./rails_app/dummy/spec/features/user_login_and_logout_spec.rb", "(new_user_session_path)", " \"Signed in successfully\"", " \"You have to confirm your email address before continuing\"", " \"Invalid email or password\"", " \"You have one more attempt before your account is locked\"", " \"Signed in successfully\"", " \"You have to confirm your email address before continuing\""], ["./rails_app/dummy/spec/home_spec.rb", " artwork.name", " artwork.price"]]
 
     it 'return an array of path and its results' do
       expect(GetDataFromSpec.resultat_trie 'result'). to eq datas
-    end
-
-    it 'return an array just with results' do
-      expect(CheckDuplication.trie_les_expects_et_les_noms_de_fichiers datas). to eq [[" \"L'origine du monde 1\"", " \"L'origine du monde 2\"", " \"L'origine du monde 3\""], [" artwork_path Artwork.last", " user.name"], [" artwork.name", " artwork.price", " artwork.owner", " 'Popi'", " '22'"], [" user.name", " user.first_name", " artwork.name", " artwork.price", " artwork.size"], [" artwork.name", " artwork.price"]]
     end
 
     it "should print the right informations on terminal" do
