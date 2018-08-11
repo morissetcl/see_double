@@ -1,5 +1,5 @@
 # SeeDouble
-Short description and motivation.
+Hi guys.
 
 ## Usage
 How to use my plugin.
