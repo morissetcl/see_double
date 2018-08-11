@@ -3,7 +3,7 @@ PATH
   specs:
     see_double (1.0.0)
       colorize (~> 0.8.1)
-      rails (>= 5.1.5)
+      rails (>= 5.1.4)
 
 GEM
   remote: https://rubygems.org/
@@ -76,7 +76,11 @@ GEM
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
     rack (2.0.5)
+<<<<<<< HEAD
     rack-test (1.1.0)
+=======
+    rack-test (1.0.0)
+>>>>>>> 3390339fd273356928400d83d22084c0cb713ac0
       rack (>= 1.0, < 3)
     rails (5.2.0)
       actioncable (= 5.2.0)
