@@ -12,7 +12,11 @@ Gem::Specification.new do |s|
   s.authors     = ["Clement Morisset"]
   s.email       = ["morissetcl87@gmail.com"]
   s.summary     = "ok: Summary of SeeDouble."
-  s.description = "ok: Description of SeeDouble."
+  s.homepage    = "https://github.com/morissetcl/see_double"
+
+  s.description = "A small tool CLI to monitoring your FEATURE specs and check your duplication.
+  SeeDouble go through all your specs and count the number of occurence of your 'expect'
+   and 'result'."
   s.license     = "MIT"
   s.executables << "see_double"
 
