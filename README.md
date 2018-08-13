@@ -68,8 +68,8 @@ In your cli just type `see_double result` and you will see something like that..
 ----- Analyze of your result from each features specs -----
 
 ./spec/features/cars/edit_spec.rb:
-you use 2 times 'CoolCar' as expect
-you use 2 times 'customer@gmail.com' as expect
+you use 2 times 'CoolCar' as result
+you use 2 times 'customer@gmail.com' as result
 ```
 
 SeeDouble count the number of occurence of your 'result'. Your result is sorted by file.
