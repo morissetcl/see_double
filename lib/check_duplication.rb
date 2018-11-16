@@ -5,9 +5,24 @@ require 'colorize'
 class CheckDuplication
   class << self
     def recupere_data_from_spec(arg)
+      check_si_arg_est_valide(arg)
+      return unless mot_cles_gere_par_la_gem?(arg)
       datas = GetDataFromSpec.resultat_trie(arg)
       trie_les_expects_et_les_noms_de_fichiers(datas)
       identifie_duplication_au_sein_d_un_mm_file(datas, arg)
+    end
+
+    def check_si_arg_est_valide(arg)
+      print message_erreur(arg) unless mot_cles_gere_par_la_gem?(arg)
+    end
+
+    def message_erreur(arg)
+      "Sorry we does not handle '#{arg}', feel free to make a PR about ! ;)"
+    end
+
+    def mot_cles_gere_par_la_gem?(mot_cle)
+      array = ['expect', 'result']
+      array.include?(mot_cle)
     end
 
     def trie_les_expects_et_les_noms_de_fichiers(datas)
