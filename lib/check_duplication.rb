@@ -5,11 +5,15 @@ require 'colorize'
 class CheckDuplication
   class << self
     def recupere_data_from_spec(arg)
+      @debut = Time.now
       check_si_arg_est_valide(arg)
       return unless mot_cles_gere_par_la_gem?(arg)
       datas = GetDataFromSpec.resultat_trie(arg)
       trie_les_expects_et_les_noms_de_fichiers(datas)
       identifie_duplication_au_sein_d_un_mm_file(datas, arg)
+      fin = Time.now
+      diff = ((fin - @debut) / 3600).round(8)
+      print "#{diff} seconds"
     end
 
     def check_si_arg_est_valide(arg)
