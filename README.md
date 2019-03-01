@@ -1,6 +1,6 @@
 # SeeDouble
 
-A small tool CLI to monitoring your FEATURE specs and check your duplication.
+A small tool CLI, for Rspec Lover, to monitoring your FEATURE specs and check your duplication.
 SeeDouble go through all your specs and count the number of occurence of your 'expect'
  and 'result'.
 
@@ -21,8 +21,10 @@ Or install it yourself as:
     $ gem install see_double
 
 ## Get started
-Just open you terminal, go in your project and type
+Just open you terminal, go in your project and type:
+
 `see_double expect` or `see_double result`.
+(if you are facing somme issue try to prepend `bundle exec` before the commands above)
 
 An example is better than 1000 words so.. imagine you have written the following and beautiful test:
 
