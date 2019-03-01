@@ -1,6 +1,6 @@
 require 'rails'
-require_relative 'check_expect'
 require 'colorize'
+require_relative 'check_expect'
 
 class CheckDuplication
   class << self
