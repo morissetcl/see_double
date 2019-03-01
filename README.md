@@ -21,7 +21,7 @@ Or install it yourself as:
     $ gem install see_double
 
 ## Get started
-Just open you terminal, go in your project and type
+Just open you terminal, go in your project and type:
 
 `see_double expect` or `see_double result`.
 (if you are facing somme issue try to prepend `bundle exec` before the commands above)
