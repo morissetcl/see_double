@@ -1,3 +1,5 @@
+![Build Status](https://img.shields.io/circleci/build/github/morissetcl/see_double/master)
+[![Gem Version](https://badge.fury.io/rb/see_double.svg)](https://badge.fury.io/rb/see_double)
 # SeeDouble
 
 A small tool CLI, for Rspec Lover, to monitoring your FEATURE specs and check your duplication.
