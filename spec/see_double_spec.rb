@@ -7,7 +7,7 @@ describe SeeDouble do
 
     datas =[["./rails_app/dummy/spec/features/share_page_spec.rb", "\"Script served by Clément Rollon\""], ["./rails_app/dummy/spec/features/user_login_and_logout_spec.rb", "current_path", "new_user_session_path"], ["./rails_app/dummy/spec/home_spec.rb", "doudou", "doudou"]]
 
-    it 'return an array of path and its expects' do
+    xit 'return an array of path and its expects' do
       expect(GetDataFromSpec.resultat_trie 'expect'). to eq datas
     end
 
@@ -27,8 +27,7 @@ describe SeeDouble do
 
     datas = [["./rails_app/dummy/spec/features/share_page_spec.rb", "(\"Script served by Clément Rollon\")"], ["./rails_app/dummy/spec/features/user_login_and_logout_spec.rb", "(new_user_session_path)", " \"Signed in successfully\"", " \"You have to confirm your email address before continuing\"", " \"Invalid email or password\"", " \"You have one more attempt before your account is locked\"", " \"Signed in successfully\"", " \"You have to confirm your email address before continuing\""], ["./rails_app/dummy/spec/home_spec.rb", " artwork.name", " artwork.price"], ["./rails_app/dummy/spec/admin_spec.rb", " \"L'origine du monde 1\"", " \"L'origine du monde 2\"", " \"L'origine du monde 3\""]]
 
-    it 'return an array of path and its results' do
-      p GetDataFromSpec.resultat_trie 'result'
+    xit 'return an array of path and its results' do
       expect(GetDataFromSpec.resultat_trie 'result'). to eq datas
     end
 
