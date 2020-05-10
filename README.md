@@ -5,6 +5,8 @@
 A small tool CLI, for Rspec Lover, to monitoring your FEATURE specs and check your duplication.
 SeeDouble go through all your specs and count the number of occurence of your 'expect'
  and 'result'.
+ 
+ ![alt-text](https://res.cloudinary.com/dlna8yzfyj/image/upload/v1589131999/998db9df4c56701211c9e8602eaba3f0_nq174n.gif)
 
 ## Installation
 
